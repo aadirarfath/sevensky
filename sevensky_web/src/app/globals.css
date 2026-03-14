@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* Premium Gold Palette for text/accents */
+  --color-brand-50: #F9F4E5;
+  --color-brand-100: #E5D08F; /* Pale Gold - Brightest highlights */
+  --color-brand-300: #C5A059; /* Classic Gold - Primary mid-tone */
+  --color-brand-400: #A88647;
+  --color-brand-500: #C5A059; /* Classic Gold - main reference */
+  --color-brand-600: #8F6E35; /* Deep Gold - Shadowed gold */
+  --color-brand-800: #5E4625; /* Bronze Edge - Darkest accents */
+  
+  --color-accent-400: #E5D08F;
+  --color-accent-500: #C5A059;
+  --color-accent-600: #8F6E35;
+
+  /* Custom Deep Grays for Backgrounds (Overriding default slates) */
+  --color-slate-800: #333333; /* Soft Slate - Center lighting */
+  --color-slate-900: #1A1A1A; /* Rich Charcoal - Main background */
+  --color-slate-950: #0D0D0D; /* Deep Onyx - Deep shadows */
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  :root {
+    --background: #1A1A1A; /* Rich Charcoal - Main background */
+    --background-darker: #0D0D0D; /* Deep Onyx - Deep shadows */
+    --background-lighter: #333333; /* Soft Slate - Center lighting */
+    --foreground: #E5D08F; /* Pale Gold for high-contrast text by default */
+  }
+
+  /* Built-in Dark Mode Support if needed later */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #020617; /* Deep Slate as background */
+      --foreground: #f8fafc; /* Slate 50 */
+    }
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 dark:bg-slate-900/70 dark:border-slate-800/50;
+  }
+}
