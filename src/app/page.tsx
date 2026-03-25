@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/sections/Contact";
 
 function Footer() {
   return (
-    <footer className="border-t border-[#D8D8D0] bg-[#EFEFEA] py-8">
+    <footer className="border-t border-[#D8D8D0] dark:border-[#333333] py-8">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-[#888880]" style={{ fontFamily: "var(--font-geist-mono)" }}>
           © 2025 SevenSky Agency
@@ -20,7 +20,7 @@ function Footer() {
             href="https://instagram.com/sevensky.ae"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#888880] hover:text-[#111111] transition-colors"
+            className="text-xs text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             Instagram
@@ -29,14 +29,14 @@ function Footer() {
             href="https://linkedin.com/company/sevensky"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#888880] hover:text-[#111111] transition-colors"
+            className="text-xs text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             LinkedIn
           </a>
           <a
             href="mailto:hello@sevensky.ae"
-            className="text-xs text-[#888880] hover:text-[#111111] transition-colors"
+            className="text-xs text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             Email
@@ -49,7 +49,7 @@ function Footer() {
 
 export default function HomePage() {
   return (
-    <main className="bg-[#EFEFEA]">
+    <main>
       <FloatingHeader />
       <HeroSection />
       <ServicesSection />

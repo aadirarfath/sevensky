@@ -19,7 +19,7 @@ export function HeroSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#EFEFEA]"
+            className="relative min-h-screen flex flex-col justify-center overflow-hidden"
         >
             {/* Dot grid texture */}
             <div
@@ -41,7 +41,7 @@ export function HeroSection() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-16">
                 {/* Headline */}
                 <h1
-                    className="text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[0.88] text-[#111111] select-none"
+                    className="text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[0.88] text-[#111111] dark:text-gray-100 select-none"
                     style={{ fontFamily: "var(--font-display)", letterSpacing: "0.01em" }}
                 >
                     <span className="block animate-fade-up animate-delay-200">WE BUILD</span>
@@ -60,7 +60,7 @@ export function HeroSection() {
                     <div className="animate-fade-up animate-delay-600">
                         <a
                             href="#services"
-                            className="inline-flex items-center gap-2 border border-[#111111] text-[#111111] text-sm px-6 py-3 rounded-full hover:bg-[#111111] hover:text-white transition-all duration-200"
+                            className="inline-flex items-center gap-2 border border-[#111111] dark:border-white text-[#111111] dark:text-white text-sm px-6 py-3 rounded-full hover:bg-[#111111] dark:hover:bg-white hover:text-white dark:hover:text-[#111111] transition-all duration-200"
                         >
                             See Our Work ↓
                         </a>

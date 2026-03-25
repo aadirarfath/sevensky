@@ -42,12 +42,12 @@ export function ServicesSection() {
         <section
             id="services"
             ref={sectionRef}
-            className="py-24 md:py-36 bg-[#EFEFEA] border-t border-[#D8D8D0]"
+            className="py-24 md:py-36 border-t border-[#D8D8D0] dark:border-[#333333]"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Heading */}
                 <h2
-                    className="text-[15vw] md:text-[10vw] leading-none text-[#111111] mb-12 md:mb-16"
+                    className="text-[15vw] md:text-[10vw] leading-none text-[#111111] dark:text-white mb-12 md:mb-16"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
                     OUR SERVICES
@@ -62,7 +62,7 @@ export function ServicesSection() {
                             style={{ transform: `rotate(${s.rotate}deg)` }}
                         >
                             <span
-                                className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 border-2 border-[#111111] rounded-full bg-white text-[#111111] font-bold text-sm md:text-base tracking-wide select-none cursor-default transition-all duration-200 ease-out group-hover:shadow-[4px_4px_0px_#111111] group-hover:-translate-y-1 group-hover:scale-[1.03]"
+                                className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 border-2 border-[#111111] dark:border-white rounded-full bg-white dark:bg-[#111111] text-[#111111] dark:text-white font-bold text-sm md:text-base tracking-wide select-none cursor-default transition-all duration-200 ease-out group-hover:shadow-[4px_4px_0px_#111111] dark:group-hover:shadow-[4px_4px_0px_white] group-hover:-translate-y-1 group-hover:scale-[1.03]"
                                 style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em" }}
                             >
                                 {s.label}
@@ -72,10 +72,10 @@ export function ServicesSection() {
                 </div>
 
                 {/* Two-column text block */}
-                <div className="mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 border-t border-[#D8D8D0] pt-10">
+                <div className="mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 border-t border-[#D8D8D0] dark:border-[#333333] pt-10">
                     <div>
                         <p
-                            className="text-4xl md:text-5xl text-[#111111] leading-tight"
+                            className="text-4xl md:text-5xl text-[#111111] dark:text-white leading-tight"
                             style={{ fontFamily: "var(--font-display)" }}
                         >
                             8 Services.
@@ -84,7 +84,7 @@ export function ServicesSection() {
                         </p>
                     </div>
                     <div className="flex items-center">
-                        <p className="text-[#888880] text-base leading-relaxed max-w-md">
+                        <p className="text-[#888880] dark:text-gray-300 text-base leading-relaxed max-w-md">
                             SevenSky is your end-to-end digital partner. We don't just build assets — we build momentum. From the first touchpoint to sustained growth, every service connects into one cohesive strategy.
                         </p>
                     </div>

@@ -36,29 +36,29 @@ export function ContactSection() {
     };
 
     const inputClass =
-        "w-full px-4 py-3 bg-white border border-[#D8D8D0] rounded-lg text-[#111111] text-sm placeholder-[#B0B0A8] focus:outline-none focus:border-[#111111] transition-colors duration-200";
+        "w-full px-4 py-3 bg-white dark:bg-[#111111] border border-[#D8D8D0] dark:border-[#333333] rounded-lg text-[#111111] dark:text-white text-sm placeholder-[#B0B0A8] focus:outline-none focus:border-[#111111] dark:focus:border-white transition-colors duration-200";
 
     return (
         <section
             id="contact"
-            className="py-24 md:py-36 bg-[#EFEFEA] border-t border-[#D8D8D0]"
+            className="py-24 md:py-36 border-t border-[#D8D8D0] dark:border-[#333333]"
         >
             <div className="max-w-2xl mx-auto px-6 md:px-0">
                 {/* Heading */}
                 <h2
-                    className="text-[16vw] sm:text-[10vw] md:text-[88px] leading-none text-[#111111] mb-4"
+                    className="text-[16vw] sm:text-[10vw] md:text-[88px] leading-none text-[#111111] dark:text-white mb-4"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
                     LET&apos;S TALK
                 </h2>
-                <p className="text-[#888880] mb-10">Tell us about your project.</p>
+                <p className="text-[#888880] dark:text-gray-400 mb-10">Tell us about your project.</p>
 
                 {submitted ? (
                     <div className="py-16 text-center">
-                        <p className="text-3xl text-[#111111]" style={{ fontFamily: "var(--font-display)" }}>
+                        <p className="text-3xl text-[#111111] dark:text-white" style={{ fontFamily: "var(--font-display)" }}>
                             Message sent ✦
                         </p>
-                        <p className="text-[#888880] mt-3">We'll be in touch within 24 hours.</p>
+                        <p className="text-[#888880] dark:text-gray-400 mt-3">We'll be in touch within 24 hours.</p>
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -112,10 +112,10 @@ export function ContactSection() {
                 )}
 
                 {/* Footer contact info */}
-                <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-[#D8D8D0]">
+                <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-[#D8D8D0] dark:border-[#333333]">
                     <a
                         href="mailto:hello@sevensky.ae"
-                        className="text-sm text-[#888880] hover:text-[#111111] transition-colors"
+                        className="text-sm text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
                         style={{ fontFamily: "var(--font-geist-mono)" }}
                     >
                         hello@sevensky.ae
@@ -124,7 +124,7 @@ export function ContactSection() {
                         href="https://instagram.com/sevensky.ae"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-[#888880] hover:text-[#111111] transition-colors"
+                        className="text-sm text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
                         style={{ fontFamily: "var(--font-geist-mono)" }}
                     >
                         @sevensky.ae

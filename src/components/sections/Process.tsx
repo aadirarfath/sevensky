@@ -57,13 +57,13 @@ export function ProcessSection() {
         <section
             id="process"
             ref={sectionRef}
-            className="py-24 md:py-36 bg-[#EFEFEA] border-t border-[#D8D8D0]"
+            className="py-24 md:py-36 border-t border-[#D8D8D0] dark:border-[#333333]"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Heading */}
                 <div className="mb-4 flex items-center gap-4">
                     <h2
-                        className="text-[12vw] md:text-[8vw] leading-none text-[#111111]"
+                        className="text-[12vw] md:text-[8vw] leading-none text-[#111111] dark:text-white"
                         style={{ fontFamily: "var(--font-display)" }}
                     >
                         HOW WE WORK
@@ -71,7 +71,7 @@ export function ProcessSection() {
                 </div>
 
                 {/* Steps */}
-                <div className="mt-12 md:mt-16 divide-y divide-[#D8D8D0]">
+                <div className="mt-12 md:mt-16 divide-y divide-[#D8D8D0] dark:divide-[#333333]">
                     {steps.map((step) => (
                         <div
                             key={step.number}
@@ -79,7 +79,7 @@ export function ProcessSection() {
                         >
                             {/* Number */}
                             <span
-                                className="text-[80px] md:text-[120px] leading-none text-[#DEDED8] group-hover:text-[#111111] transition-colors duration-300 select-none shrink-0 w-auto md:w-48 text-right hidden md:block"
+                                className="text-[80px] md:text-[120px] leading-none text-[#DEDED8] dark:text-[#222222] group-hover:text-[#111111] dark:group-hover:text-white transition-colors duration-300 select-none shrink-0 w-auto md:w-48 text-right hidden md:block"
                                 style={{ fontFamily: "var(--font-display)" }}
                                 aria-hidden="true"
                             >
@@ -88,7 +88,7 @@ export function ProcessSection() {
 
                             {/* Mobile number */}
                             <span
-                                className="text-5xl text-[#DEDED8] group-hover:text-[#111111] transition-colors duration-300 select-none md:hidden"
+                                className="text-5xl text-[#DEDED8] dark:text-[#222222] group-hover:text-[#111111] dark:group-hover:text-white transition-colors duration-300 select-none md:hidden"
                                 style={{ fontFamily: "var(--font-display)" }}
                                 aria-hidden="true"
                             >
@@ -98,12 +98,12 @@ export function ProcessSection() {
                             {/* Text */}
                             <div className="flex-1">
                                 <h3
-                                    className="text-3xl md:text-4xl text-[#111111] mb-3"
+                                    className="text-3xl md:text-4xl text-[#111111] dark:text-white mb-3"
                                     style={{ fontFamily: "var(--font-display)" }}
                                 >
                                     {step.title}
                                 </h3>
-                                <p className="text-[#888880] leading-relaxed max-w-lg">{step.description}</p>
+                                <p className="text-[#888880] dark:text-gray-300 leading-relaxed max-w-lg">{step.description}</p>
                             </div>
                         </div>
                     ))}
