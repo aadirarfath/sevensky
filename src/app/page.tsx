@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/sections/Hero";
 import { ServicesSection } from "@/components/sections/Services";
 import { ProcessSection } from "@/components/sections/Process";
 import { AboutSection } from "@/components/sections/About";
+import { FAQSection } from "@/components/sections/FAQ";
 import { ContactSection } from "@/components/sections/Contact";
 
 function Footer() {
@@ -20,7 +21,7 @@ function Footer() {
             href="https://instagram.com/sevensky.ae"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
+            className="text-xs text-[#111111] dark:text-white md:text-[#888880] md:hover:text-[#111111] md:dark:hover:text-white transition-colors"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             Instagram
@@ -29,14 +30,14 @@ function Footer() {
             href="https://linkedin.com/company/sevensky"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
+            className="text-xs text-[#111111] dark:text-white md:text-[#888880] md:hover:text-[#111111] md:dark:hover:text-white transition-colors"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             LinkedIn
           </a>
           <a
-            href="mailto:hello@sevensky.ae"
-            className="text-xs text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
+            href="mailto:admin@sevenskymedia.com"
+            className="text-xs text-[#111111] dark:text-white md:text-[#888880] md:hover:text-[#111111] md:dark:hover:text-white transition-colors"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             Email
@@ -55,6 +56,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProcessSection />
       <AboutSection />
+      <FAQSection />
       <ContactSection />
       <Footer />
     </main>

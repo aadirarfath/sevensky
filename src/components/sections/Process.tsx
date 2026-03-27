@@ -86,9 +86,9 @@ export function ProcessSection() {
                                 {step.number}
                             </span>
 
-                            {/* Mobile number */}
+                            {/* Mobile number — always lit */}
                             <span
-                                className="text-5xl text-[#DEDED8] dark:text-[#222222] group-hover:text-[#111111] dark:group-hover:text-white transition-colors duration-300 select-none md:hidden"
+                                className="text-5xl text-[#111111] dark:text-white select-none md:hidden"
                                 style={{ fontFamily: "var(--font-display)" }}
                                 aria-hidden="true"
                             >

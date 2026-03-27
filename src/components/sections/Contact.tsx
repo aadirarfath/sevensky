@@ -15,6 +15,8 @@ const services = [
     "Email Marketing",
 ];
 
+
+
 export function ContactSection() {
     const [submitted, setSubmitted] = useState(false);
     const [formData, setFormData] = useState({
@@ -58,7 +60,7 @@ export function ContactSection() {
                         <p className="text-3xl text-[#111111] dark:text-white" style={{ fontFamily: "var(--font-display)" }}>
                             Message sent ✦
                         </p>
-                        <p className="text-[#888880] dark:text-gray-400 mt-3">We'll be in touch within 24 hours.</p>
+                        <p className="text-[#888880] dark:text-gray-400 mt-3">We&apos;ll be in touch within 24 hours.</p>
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -111,20 +113,22 @@ export function ContactSection() {
                     </form>
                 )}
 
+
+
                 {/* Footer contact info */}
                 <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-[#D8D8D0] dark:border-[#333333]">
                     <a
-                        href="mailto:hello@sevensky.ae"
-                        className="text-sm text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
+                        href="mailto:admin@sevenskymedia.com"
+                        className="text-sm text-[#111111] dark:text-white md:text-[#888880] md:hover:text-[#111111] md:dark:hover:text-white transition-colors"
                         style={{ fontFamily: "var(--font-geist-mono)" }}
                     >
-                        hello@sevensky.ae
+                        admin@sevenskymedia.com
                     </a>
                     <a
                         href="https://instagram.com/sevensky.ae"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-[#888880] hover:text-[#111111] dark:hover:text-white transition-colors"
+                        className="text-sm text-[#111111] dark:text-white md:text-[#888880] md:hover:text-[#111111] md:dark:hover:text-white transition-colors"
                         style={{ fontFamily: "var(--font-geist-mono)" }}
                     >
                         @sevensky.ae

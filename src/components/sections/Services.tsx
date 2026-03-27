@@ -1,47 +1,65 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+    HoverSlider,
+    HoverSliderImage,
+    HoverSliderImageWrap,
+    TextStaggerHover,
+} from "@/components/ui/animated-slideshow";
 
-const services = [
-    { label: "WEB DESIGN", rotate: -6 },
-    { label: "SEO", rotate: 4 },
-    { label: "PHOTOGRAPHY", rotate: -3 },
-    { label: "SOCIAL MEDIA", rotate: 7 },
-    { label: "STRATEGY", rotate: -8 },
-    { label: "BRANDING", rotate: 5 },
-    { label: "ADS", rotate: -4 },
-    { label: "CONTENT CREATION", rotate: 3 },
-    { label: "EMAIL MARKETING", rotate: 9 },
+const SLIDES = [
+    {
+        id: "slide-1",
+        title: "Web Development",
+        imageUrl: "/images/web_development.jpg",
+        description: "Custom, high-performance websites built for speed, SEO, and conversion.",
+        bullets: ["Next.js & React", "E-commerce", "CMS Integration", "Web App Development"],
+    },
+    {
+        id: "slide-2",
+        title: "Social Media",
+        imageUrl: "/images/social_media.jpg",
+        description: "Building brand presence and engagement across all key digital channels.",
+        bullets: ["Content Strategy", "Community Management", "Influencer Marketing", "Account Growth"],
+    },
+    {
+        id: "slide-3",
+        title: "Performance Marketing",
+        imageUrl: "/images/ads.jpg",
+        description: "Data-driven campaigns designed to deliver measurable ROI and scale business.",
+        bullets: ["Paid Search (SEM)", "Meta Ads", "Programmatic Ads", "Conversion Rate Optimisation"],
+    },
+    {
+        id: "slide-4",
+        title: "Production",
+        imageUrl: "/images/video_editing.jpg",
+        description: "High-end visual storytelling from concept to final edit.",
+        bullets: ["Video Production", "Photography", "Post-Production", "Colour Grading"],
+    },
+    {
+        id: "slide-5",
+        title: "Creative",
+        imageUrl: "/images/content_creation.jpg",
+        description: "Bold ideas and visual languages that define market leaders.",
+        bullets: ["Creative Direction", "Copywriting", "Content Creation", "Graphic Design"],
+    },
+    {
+        id: "slide-6",
+        title: "Branding",
+        imageUrl: "/images/branding.jpg",
+        description: "Positioning and identity systems that stand the test of time.",
+        bullets: ["Visual Identity", "Brand Strategy", "Logo Design", "Brand Guidelines"],
+    },
 ];
 
 export function ServicesSection() {
-    const sectionRef = useRef<HTMLElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const pills = entry.target.querySelectorAll<HTMLElement>(".pill-item");
-                        pills.forEach((pill, i) => {
-                            pill.style.animationDelay = `${i * 0.07}s`;
-                            pill.classList.add("animate-pill-in");
-                        });
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
-
-        if (sectionRef.current) observer.observe(sectionRef.current);
-        return () => observer.disconnect();
-    }, []);
+    const [openIndex, setOpenIndex] = useState<number>(0);
 
     return (
         <section
             id="services"
-            ref={sectionRef}
             className="py-24 md:py-36 border-t border-[#D8D8D0] dark:border-[#333333]"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -52,44 +70,79 @@ export function ServicesSection() {
                 >
                     OUR SERVICES
                 </h2>
-
-                {/* Pill scatter */}
-                <div className="flex flex-wrap gap-4 md:gap-5">
-                    {services.map((s, i) => (
-                        <div
-                            key={s.label}
-                            className="pill-item group"
-                            style={{ transform: `rotate(${s.rotate}deg)` }}
-                        >
-                            <span
-                                className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 border-2 border-[#111111] dark:border-white rounded-full bg-white dark:bg-[#111111] text-[#111111] dark:text-white font-bold text-sm md:text-base tracking-wide select-none cursor-default transition-all duration-200 ease-out group-hover:shadow-[4px_4px_0px_#111111] dark:group-hover:shadow-[4px_4px_0px_white] group-hover:-translate-y-1 group-hover:scale-[1.03]"
-                                style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em" }}
-                            >
-                                {s.label}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Two-column text block */}
-                <div className="mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 border-t border-[#D8D8D0] dark:border-[#333333] pt-10">
-                    <div>
-                        <p
-                            className="text-4xl md:text-5xl text-[#111111] dark:text-white leading-tight"
-                            style={{ fontFamily: "var(--font-display)" }}
-                        >
-                            8 Services.
-                            <br />
-                            One Partner.
-                        </p>
-                    </div>
-                    <div className="flex items-center">
-                        <p className="text-[#888880] dark:text-gray-300 text-base leading-relaxed max-w-md">
-                            SevenSky is your end-to-end digital partner. We don't just build assets — we build momentum. From the first touchpoint to sustained growth, every service connects into one cohesive strategy.
-                        </p>
-                    </div>
-                </div>
             </div>
+
+            {/* Hover Slider */}
+            <HoverSlider className="px-6 md:px-12 max-w-7xl mx-auto">
+                <div className="flex flex-wrap items-start justify-between gap-8 md:gap-12">
+                    {/* Service List with Accordion */}
+                    <div className="flex flex-col flex-1 min-w-[260px] divide-y divide-[#D8D8D0] dark:divide-[#333333]">
+                        {SLIDES.map((slide, index) => (
+                            <div key={slide.id} className="py-6 md:py-8">
+                                <button
+                                    className="w-full text-left focus:outline-none group"
+                                    onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
+                                    aria-expanded={openIndex === index}
+                                >
+                                    <TextStaggerHover
+                                        index={index}
+                                        text={slide.title}
+                                        className="text-[8vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.8vw] font-bold uppercase tracking-tighter text-[#111111] dark:text-white leading-tight"
+                                        style={{ fontFamily: "var(--font-display)" }}
+                                    />
+                                </button>
+
+                                <AnimatePresence initial={false}>
+                                    {openIndex === index && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="pt-6 pb-2 max-w-xl">
+                                                <p className="text-lg md:text-xl text-[#111111] dark:text-white mb-6 leading-relaxed">
+                                                    {slide.description}
+                                                </p>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                                                    {slide.bullets.map((bullet) => (
+                                                        <div key={bullet} className="flex items-center gap-3">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-[#111111] dark:bg-white opacity-40" />
+                                                            <span className="text-sm md:text-base text-[#888880] dark:text-gray-400 uppercase tracking-widest font-medium">
+                                                                {bullet}
+                                                            </span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Image Panel — Sticky and tall */}
+                    <div className="hidden lg:block w-[400px] xl:w-[480px] shrink-0 sticky top-32 self-start mt-8">
+                        <HoverSliderImageWrap className="rounded-2xl overflow-hidden h-[70vh] shadow-xl">
+                            {SLIDES.map((slide, index) => (
+                                <div key={slide.id}>
+                                    <HoverSliderImage
+                                        index={index}
+                                        imageUrl={slide.imageUrl}
+                                        src={slide.imageUrl}
+                                        alt={slide.title}
+                                        className="size-full object-cover"
+                                        loading="eager"
+                                        decoding="async"
+                                    />
+                                </div>
+                            ))}
+                        </HoverSliderImageWrap>
+                    </div>
+                </div>
+            </HoverSlider>
         </section>
     );
 }

@@ -32,7 +32,6 @@ export default function ContactPage() {
                 </div>
                 <div className="ml-6">
                   <h3 className="text-lg font-medium text-white mb-2">Email Us</h3>
-                  <p className="text-slate-400"> sevenskymedia26@gmail.com</p>
                   <p className="text-slate-400">admin@sevenskymedia.com</p>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, DM_Sans } from "next/font/google";
+import { Bebas_Neue, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -9,7 +10,7 @@ const bebasNeue = Bebas_Neue({
   variable: "--font-display",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
 });
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${bebasNeue.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${bebasNeue.variable} ${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -36,6 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <FloatingWhatsApp />
         </ThemeProvider>
       </body>
     </html>
