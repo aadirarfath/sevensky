@@ -63,7 +63,7 @@ export function ProcessSection() {
                 {/* Heading */}
                 <div className="mb-4 flex items-center gap-4">
                     <h2
-                        className="text-[12vw] md:text-[8vw] leading-none text-white"
+                        className="text-[12vw] md:text-[8vw] leading-none text-[#D4A843]"
                         style={{ fontFamily: "var(--font-display)" }}
                     >
                         HOW WE WORK
@@ -79,7 +79,7 @@ export function ProcessSection() {
                         >
                             {/* Number */}
                             <span
-                                className="text-[80px] md:text-[120px] leading-none text-[#1C1408] group-hover:text-[#D4A843] transition-colors duration-300 select-none shrink-0 w-auto md:w-48 text-right hidden md:block"
+                                className="text-[80px] md:text-[120px] leading-none text-white/10 group-hover:text-white transition-colors duration-500 select-none shrink-0 w-auto md:w-48 text-right hidden md:block"
                                 style={{ fontFamily: "var(--font-display)" }}
                                 aria-hidden="true"
                             >
@@ -88,7 +88,7 @@ export function ProcessSection() {
 
                             {/* Mobile number — always lit */}
                             <span
-                                className="text-5xl text-[#D4A843] select-none md:hidden"
+                                className="text-5xl text-white select-none md:hidden"
                                 style={{ fontFamily: "var(--font-display)" }}
                                 aria-hidden="true"
                             >
@@ -98,12 +98,12 @@ export function ProcessSection() {
                             {/* Text */}
                             <div className="flex-1">
                                 <h3
-                                    className="text-3xl md:text-4xl text-white mb-3 group-hover:text-[#D4A843] transition-colors duration-300"
+                                    className="text-3xl md:text-4xl text-[#D4A843] mb-3"
                                     style={{ fontFamily: "var(--font-display)" }}
                                 >
                                     {step.title}
                                 </h3>
-                                <p className="text-[#C9A84C] leading-relaxed max-w-lg">{step.description}</p>
+                                <p className="text-white leading-relaxed max-w-lg">{step.description}</p>
                             </div>
                         </div>
                     ))}
