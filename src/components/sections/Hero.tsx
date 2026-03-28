@@ -11,7 +11,6 @@ export function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        // Trigger animations after mount
         const el = sectionRef.current;
         if (el) el.classList.add("loaded");
     }, []);
@@ -23,14 +22,14 @@ export function HeroSection() {
         >
             {/* Dot grid texture */}
             <div
-                className="absolute inset-0 bg-dot-grid opacity-40 pointer-events-none"
+                className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none"
                 aria-hidden="true"
             />
 
             {/* Top-left label */}
             <div className="absolute top-24 left-6 md:left-12">
                 <p
-                    className="text-xs text-[#888880] tracking-widest uppercase animate-fade-up animate-delay-100"
+                    className="text-xs text-[#7A5C1E] tracking-widest uppercase animate-fade-up animate-delay-100"
                     style={{ fontFamily: "var(--font-geist-mono)" }}
                 >
                     Digital Agency — Est. 2024
@@ -41,16 +40,16 @@ export function HeroSection() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-16">
                 {/* Headline */}
                 <h1
-                    className="text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[0.88] text-[#111111] dark:text-gray-100 select-none"
+                    className="text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[0.88] text-white select-none"
                     style={{ fontFamily: "var(--font-display)", letterSpacing: "0.01em" }}
                 >
                     <span className="block animate-fade-up animate-delay-200">WE BUILD</span>
-                    <span className="block animate-fade-up animate-delay-300">BRANDS THAT</span>
+                    <span className="block animate-fade-up animate-delay-300 text-transparent bg-clip-text bg-gradient-to-r from-[#D4A843] via-[#F0C040] to-[#B8882C]">BRANDS THAT</span>
                     <span className="block animate-fade-up animate-delay-400">MOVE PEOPLE</span>
                 </h1>
 
                 {/* Subtitle */}
-                <p className="mt-8 text-base md:text-lg text-[#888880] tracking-widest uppercase animate-fade-up animate-delay-500">
+                <p className="mt-8 text-base md:text-lg text-[#C9A84C] tracking-widest uppercase animate-fade-up animate-delay-500">
                     Strategy · Design · Digital Marketing · Web
                 </p>
 
@@ -60,7 +59,7 @@ export function HeroSection() {
                     <div className="animate-fade-up animate-delay-600">
                         <a
                             href="#services"
-                            className="inline-flex items-center gap-2 border border-[#111111] dark:border-white text-[#111111] dark:text-white text-sm px-6 py-3 rounded-full hover:bg-[#111111] dark:hover:bg-white hover:text-white dark:hover:text-[#111111] transition-all duration-200"
+                            className="inline-flex items-center gap-2 border border-[#D4A843] text-[#D4A843] text-sm px-6 py-3 rounded-full hover:bg-[#D4A843] hover:text-[#0C0C0C] transition-all duration-200"
                         >
                             See Our Work ↓
                         </a>
@@ -74,11 +73,11 @@ export function HeroSection() {
                     {[...tickerItems, ...tickerItems].map((item, i) => (
                         <span
                             key={i}
-                            className="inline-flex items-center px-6 text-xs tracking-widest text-[#888880] shrink-0"
+                            className="inline-flex items-center px-6 text-xs tracking-widest text-[#7A5C1E] shrink-0"
                             style={{ fontFamily: "var(--font-geist-mono)" }}
                         >
                             {item}
-                            <span className="ml-6 text-[#C8C8C0]">·</span>
+                            <span className="ml-6 text-[#B8882C]">·</span>
                         </span>
                     ))}
                 </div>

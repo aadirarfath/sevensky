@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import "./globals.css";
 
@@ -30,15 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${bebasNeue.variable} ${inter.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <FloatingWhatsApp />
-        </ThemeProvider>
+        {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

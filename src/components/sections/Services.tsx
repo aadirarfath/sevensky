@@ -60,12 +60,12 @@ export function ServicesSection() {
     return (
         <section
             id="services"
-            className="py-24 md:py-36 border-t border-[#D8D8D0] dark:border-[#333333]"
+            className="py-24 md:py-36 border-t border-[#2A2415]"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Heading */}
                 <h2
-                    className="text-[15vw] md:text-[10vw] leading-none text-[#111111] dark:text-white mb-12 md:mb-16"
+                    className="text-[15vw] md:text-[10vw] leading-none text-white mb-12 md:mb-16"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
                     OUR SERVICES
@@ -76,7 +76,7 @@ export function ServicesSection() {
             <HoverSlider className="px-6 md:px-12 max-w-7xl mx-auto">
                 <div className="flex flex-wrap items-start justify-between gap-8 md:gap-12">
                     {/* Service List with Accordion */}
-                    <div className="flex flex-col flex-1 min-w-[260px] divide-y divide-[#D8D8D0] dark:divide-[#333333]">
+                    <div className="flex flex-col flex-1 min-w-[260px] divide-y divide-[#2A2415]">
                         {SLIDES.map((slide, index) => (
                             <div key={slide.id} className="py-6 md:py-8">
                                 <button
@@ -87,7 +87,7 @@ export function ServicesSection() {
                                     <TextStaggerHover
                                         index={index}
                                         text={slide.title}
-                                        className="text-[8vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.8vw] font-bold uppercase tracking-tighter text-[#111111] dark:text-white leading-tight"
+                                        className={`text-[8vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.8vw] font-bold uppercase tracking-tighter leading-tight transition-colors duration-200 ${openIndex === index ? "text-[#D4A843]" : "text-white"}`}
                                         style={{ fontFamily: "var(--font-display)" }}
                                     />
                                 </button>
@@ -102,14 +102,14 @@ export function ServicesSection() {
                                             className="overflow-hidden"
                                         >
                                             <div className="pt-6 pb-2 max-w-xl">
-                                                <p className="text-lg md:text-xl text-[#111111] dark:text-white mb-6 leading-relaxed">
+                                                <p className="text-lg md:text-xl text-[#F5F0E8] mb-6 leading-relaxed">
                                                     {slide.description}
                                                 </p>
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                                                     {slide.bullets.map((bullet) => (
                                                         <div key={bullet} className="flex items-center gap-3">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-[#111111] dark:bg-white opacity-40" />
-                                                            <span className="text-sm md:text-base text-[#888880] dark:text-gray-400 uppercase tracking-widest font-medium">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-[#D4A843]" />
+                                                            <span className="text-sm md:text-base text-[#C9A84C] uppercase tracking-widest font-medium">
                                                                 {bullet}
                                                             </span>
                                                         </div>
@@ -125,7 +125,7 @@ export function ServicesSection() {
 
                     {/* Image Panel — Sticky and tall */}
                     <div className="hidden lg:block w-[400px] xl:w-[480px] shrink-0 sticky top-32 self-start mt-8">
-                        <HoverSliderImageWrap className="rounded-2xl overflow-hidden h-[70vh] shadow-xl">
+                        <HoverSliderImageWrap className="rounded-2xl overflow-hidden h-[70vh] shadow-[0_8px_40px_rgba(212,168,67,0.15)] border border-[#2A2415]">
                             {SLIDES.map((slide, index) => (
                                 <div key={slide.id}>
                                     <HoverSliderImage

@@ -37,9 +37,8 @@ export function FloatingWhatsApp() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-14 h-14 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.15)] transition-transform duration-300 hover:scale-110 active:scale-95
-                           bg-[#111111] text-white
-                           dark:bg-white dark:text-[#111111]"
+                className="flex items-center justify-center w-14 h-14 rounded-full shadow-[0_8px_32px_rgba(212,168,67,0.25)] transition-all duration-300 hover:scale-110 hover:shadow-[0_8px_48px_rgba(240,192,64,0.4)] active:scale-95
+                           bg-[#D4A843] text-[#0C0C0C]"
                 aria-label="Chat on WhatsApp"
             >
                 <WhatsAppIcon className="w-7 h-7" />

@@ -37,44 +37,50 @@ export function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="py-24 md:py-36 border-t border-[#D8D8D0] dark:border-[#333333]">
+        <section id="faq" className="py-24 md:py-36 border-t border-[#2A2415]">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
 
                     {/* Left Column: Heading & CTA */}
                     <div className="lg:col-span-5">
-                        <h2 className="text-[12vw] md:text-[8vw] leading-none text-[#111111] dark:text-white mb-12" style={{ fontFamily: "var(--font-display)" }}>
+                        <h2
+                            className="text-[12vw] md:text-[8vw] leading-none text-white mb-12"
+                            style={{ fontFamily: "var(--font-display)" }}
+                        >
                             FAQs
                         </h2>
 
                         <div
                             onClick={() => window.open(WHATSAPP_URL, '_blank')}
-                            className="group cursor-pointer p-8 rounded-3xl bg-white dark:bg-white/5 border border-[#D8D8D0] dark:border-white/10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+                            className="group cursor-pointer p-8 rounded-3xl bg-[#141209] border border-[#2A2415] transition-all duration-300 hover:border-[#D4A843] hover:shadow-[0_8px_40px_rgba(212,168,67,0.12)] hover:-translate-y-1"
                         >
-                            <p className="text-2xl md:text-3xl text-[#111111] dark:text-white mb-6 leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+                            <p
+                                className="text-2xl md:text-3xl text-white mb-6 leading-tight"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
                                 Have further questions? Our team is ready to help you scale.
                             </p>
-                            <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-bold text-[#111111] dark:text-white border-b-2 border-[#111111] dark:border-white pb-1 group-hover:gap-4 transition-all">
+                            <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-bold text-[#D4A843] border-b-2 border-[#D4A843] pb-1 group-hover:gap-4 transition-all">
                                 Chat on WhatsApp <span>→</span>
                             </span>
                         </div>
                     </div>
 
                     {/* Right Column: FAQ Accordion */}
-                    <div className="lg:col-span-7 divide-y divide-[#D8D8D0] dark:divide-[#333333]">
+                    <div className="lg:col-span-7 divide-y divide-[#2A2415]">
                         {faqs.map((faq, index) => (
                             <div key={index} className="py-6 md:py-8">
                                 <button
                                     className="w-full flex items-center justify-between text-left focus:outline-none group"
                                     onClick={() => setOpenIndex(index === openIndex ? null : index)}
                                 >
-                                    <span className="text-xl md:text-2xl font-medium text-[#111111] dark:text-white transition-colors group-hover:text-[#888880]">
+                                    <span className="text-xl md:text-2xl font-medium text-white transition-colors group-hover:text-[#D4A843]">
                                         {faq.question}
                                     </span>
                                     {openIndex === index ? (
-                                        <Minus className="w-5 h-5 text-[#111111] dark:text-white shrink-0 ml-4" />
+                                        <Minus className="w-5 h-5 text-[#D4A843] shrink-0 ml-4" />
                                     ) : (
-                                        <Plus className="w-5 h-5 text-[#888880] shrink-0 ml-4" />
+                                        <Plus className="w-5 h-5 text-[#7A5C1E] shrink-0 ml-4" />
                                     )}
                                 </button>
 
@@ -88,7 +94,7 @@ export function FAQSection() {
                                             className="overflow-hidden"
                                         >
                                             <div className="pt-6">
-                                                <p className="text-base md:text-lg text-[#888880] dark:text-gray-400 leading-relaxed">
+                                                <p className="text-base md:text-lg text-[#C9A84C] leading-relaxed">
                                                     {faq.answer}
                                                 </p>
                                             </div>

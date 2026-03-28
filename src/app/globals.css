@@ -9,22 +9,31 @@
 }
 
 :root {
-  --background: #EFEFEA;
-  --foreground: #111111;
-  --muted: #888880;
-  --border: #D8D8D0;
-  --surface: #FFFFFF;
+  /* Black & Gold — Light mode base */
+  --background: #0C0C0C;
+  --foreground: #F5F0E8;
+  --muted: #C9A84C;
+  --border: #2A2415;
+  --surface: #141209;
+
+  /* Golden shades */
+  --gold-deep: #7A5C1E;
+  --gold-mid: #B8882C;
+  --gold-warm: #D4A843;
+  --gold-bright: #F0C040;
+  --gold-light: #F7DFA0;
+
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-geist-mono: 'Courier New', monospace;
 }
 
 .dark {
-  --background: #111111;
-  --foreground: #F5F5F5;
-  --muted: #A0A098;
-  --border: #333333;
-  --surface: #1A1A1A;
+  --background: #0C0C0C;
+  --foreground: #F5F0E8;
+  --muted: #C9A84C;
+  --border: #2A2415;
+  --surface: #141209;
 }
 
 body {
@@ -49,7 +58,7 @@ h3,
   }
 
   .bg-glass {
-    background: rgba(239, 239, 234, 0.9);
+    background: rgba(12, 12, 12, 0.88);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
   }
@@ -67,6 +76,7 @@ h3,
   to {
     opacity: 1;
     transform: translateY(0);
+    ;
   }
 }
 
@@ -154,8 +164,8 @@ h3,
   opacity: 0;
 }
 
-/* Dot grid background */
+/* Dot grid background — subtle gold on black */
 .bg-dot-grid {
-  background-image: radial-gradient(circle, #c4c4bc 1px, transparent 1px);
+  background-image: radial-gradient(circle, #2A2010 1px, transparent 1px);
   background-size: 28px 28px;
 }
