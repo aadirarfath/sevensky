@@ -171,16 +171,15 @@ export function LogoSmall({ className = "" }: { className?: string }) {
                 </div>
             </div>
 
-            {/* Text */}
             <div className="flex flex-col">
                 <span
-                    className="text-lg md:text-xl font-bold tracking-[0.15em] text-[#111111] dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-[#E5C778] dark:via-[#FFF2B2] dark:to-[#C89D46]"
+                    className="text-lg md:text-xl font-bold tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-br from-[#E5C778] via-[#FFF2B2] to-[#C89D46]"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
                     SEVEN SKY
                 </span>
                 <span
-                    className="text-[0.45rem] tracking-[0.25em] uppercase font-light -mt-0.5 text-[#888880] dark:text-[#C89D46]"
+                    className="text-[0.45rem] tracking-[0.25em] uppercase font-light -mt-0.5 text-[#C89D46]"
                     style={{ fontFamily: "var(--font-body)" }}
                 >
                     Advertising
