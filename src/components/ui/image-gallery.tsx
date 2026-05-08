@@ -4,12 +4,11 @@ import { cn } from "@/lib/utils";
 
 export function ImageGallery() {
   const images = [
-    "/images/web_development.jpg",
-    "/images/social_media.jpg",
-    "/images/photography.jpg",
-    "/images/video_editing.jpg",
-    "/images/branding.jpg",
-    "/images/ads.jpg",
+    "/testimonial/1.png",
+    "/testimonial/2.png",
+    "/testimonial/3.png",
+    "/testimonial/4.png",
+    "/testimonial/5.png",
   ];
 
   return (
