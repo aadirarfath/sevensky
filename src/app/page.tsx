@@ -2,8 +2,8 @@ import { FloatingHeader } from "@/components/ui/floating-header";
 import { HeroSection } from "@/components/sections/Hero";
 import { ServicesSection } from "@/components/sections/Services";
 import { ProcessSection } from "@/components/sections/Process";
-import { AboutSection } from "@/components/sections/About";
-import { FAQSection } from "@/components/sections/FAQ";
+import { GallerySection } from "@/components/sections/About";
+import { PostersSection } from "@/components/sections/Posters";
 import { ContactSection } from "@/components/sections/Contact";
 
 function Footer() {
@@ -55,8 +55,8 @@ export default function HomePage() {
       <HeroSection />
       <ServicesSection />
       <ProcessSection />
-      <AboutSection />
-      <FAQSection />
+      <GallerySection />
+      <PostersSection />
       <ContactSection />
       <Footer />
     </main>

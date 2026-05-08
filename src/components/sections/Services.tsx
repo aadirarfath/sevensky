@@ -81,12 +81,12 @@ export function ServicesSection() {
     return (
         <section
             id="services"
-            className="py-24 md:py-36 border-t border-[#21548e] bg-white"
+            className="min-h-[100dvh] flex flex-col justify-center py-12 md:py-20 border-t border-[#1a4473]/10 bg-white"
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
                 {/* Heading */}
                 <h2
-                    className="text-[15vw] md:text-[10vw] leading-none text-[#1a4473] mb-12 md:mb-16"
+                    className="text-[15vw] md:text-[10vw] leading-none text-[#1a4473] mb-8 md:mb-12"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
                     OUR SERVICES
@@ -94,7 +94,7 @@ export function ServicesSection() {
             </div>
 
             {/* Dynamic Frame Layout */}
-            <div className="w-full h-[60vh] md:h-[80vh] max-w-[1600px] mx-auto px-4 md:px-8">
+            <div className="w-full h-[50vh] md:h-[65vh] max-w-[1600px] mx-auto px-4 md:px-8">
                 <DynamicFrameLayout 
                     frames={serviceFrames} 
                     className="w-full h-full" 

@@ -57,56 +57,62 @@ export function ProcessSection() {
         <section
             id="process"
             ref={sectionRef}
-            className="py-24 md:py-36 border-t border-white/10 bg-[#2d6fbc]"
+            className="min-h-[100dvh] flex flex-col justify-center py-12 md:py-20 border-t border-white/10 bg-[#2d6fbc]"
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
-                {/* Heading */}
-                <div className="mb-4 flex items-center gap-4">
-                    <h2
-                        className="text-[12vw] md:text-[8vw] leading-none text-white"
-                        style={{ fontFamily: "var(--font-display)" }}
-                    >
-                        HOW WE WORK
-                    </h2>
-                </div>
-
-                {/* Steps */}
-                <div className="mt-12 md:mt-16 divide-y divide-white/10">
-                    {steps.map((step) => (
-                        <div
-                            key={step.number}
-                            className="step-item group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 md:py-10"
-                        >
-                            {/* Number */}
-                            <span
-                                className="text-[80px] md:text-[120px] leading-none text-white/10 group-hover:text-white transition-colors duration-500 select-none shrink-0 w-auto md:w-48 text-right hidden md:block"
+            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
+                    
+                    {/* Left Column: Text & Steps */}
+                    <div>
+                        <div className="mb-4 flex items-center gap-4">
+                            <h2
+                                className="text-[12vw] md:text-[8vw] lg:text-[7vw] leading-none text-white"
                                 style={{ fontFamily: "var(--font-display)" }}
-                                aria-hidden="true"
                             >
-                                {step.number}
-                            </span>
-
-                            {/* Mobile number — always lit */}
-                            <span
-                                className="text-5xl text-white select-none md:hidden"
-                                style={{ fontFamily: "var(--font-display)" }}
-                                aria-hidden="true"
-                            >
-                                {step.number}
-                            </span>
-
-                            {/* Text */}
-                            <div className="flex-1">
-                                <h3
-                                    className="text-3xl md:text-4xl text-white mb-3"
-                                    style={{ fontFamily: "var(--font-display)" }}
-                                >
-                                    {step.title}
-                                </h3>
-                                <p className="text-white/80 leading-relaxed max-w-lg">{step.description}</p>
-                            </div>
+                                HOW WE WORK
+                            </h2>
                         </div>
-                    ))}
+
+                        {/* Steps */}
+                        <div className="mt-12 divide-y divide-white/10">
+                            {steps.map((step) => (
+                                <div
+                                    key={step.number}
+                                    className="step-item group flex items-start gap-6 py-8"
+                                >
+                                    {/* Number */}
+                                    <span
+                                        className="text-4xl md:text-5xl leading-none text-white transition-colors duration-500 select-none shrink-0"
+                                        style={{ fontFamily: "var(--font-display)" }}
+                                    >
+                                        {step.number}
+                                    </span>
+
+                                    {/* Text */}
+                                    <div className="flex-1">
+                                        <h3
+                                            className="text-2xl md:text-3xl text-white mb-2"
+                                            style={{ fontFamily: "var(--font-display)" }}
+                                        >
+                                            {step.title}
+                                        </h3>
+                                        <p className="text-white/80 text-sm md:text-base leading-relaxed">{step.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right Column: Image */}
+                    <div className="relative h-[400px] md:h-[600px] lg:h-[700px] lg:sticky lg:top-36 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img 
+                            src="/images/catmascot.jpeg" 
+                            alt="SevenSky Mascot"
+                            className="w-full h-full object-cover"
+                        />
+                        {/* Subtle overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#2d6fbc]/40 to-transparent" />
+                    </div>
                 </div>
             </div>
         </section>

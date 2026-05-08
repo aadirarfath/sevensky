@@ -138,18 +138,18 @@ export function HeroSection() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 1 }}
-                            className="absolute inset-0 flex flex-col justify-end items-center text-center px-6 pb-24 md:pb-32 bg-black/20"
+                            className="absolute inset-0 flex flex-col justify-end items-center text-center px-4 sm:px-6 pb-20 sm:pb-24 md:pb-32 bg-black/20"
                         >
                             <p 
-                                className="text-3xl md:text-6xl text-white font-medium mb-6 drop-shadow-xl" 
+                                className="text-4xl sm:text-5xl md:text-6xl text-white font-medium mb-4 sm:mb-6 drop-shadow-xl" 
                                 style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}
                             >
                                 Where brands take flight.
                             </p>
-                            <p className="text-white/90 text-sm md:text-xl tracking-widest uppercase mb-4 drop-shadow-md">
+                            <p className="text-white/90 text-[10px] sm:text-xs md:text-xl tracking-widest uppercase mb-3 sm:mb-4 drop-shadow-md leading-relaxed">
                                 Bold Storytelling · Sharper design · smarter marketing
                             </p>
-                            <p className="text-[#F5F0E8]/90 text-xs md:text-base tracking-widest uppercase drop-shadow-md">
+                            <p className="text-[#F5F0E8]/90 text-[10px] sm:text-xs md:text-base tracking-widest uppercase drop-shadow-md">
                                 We build brands worth remembering
                             </p>
                         </motion.div>
@@ -163,10 +163,10 @@ export function HeroSection() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="absolute inset-0 flex flex-col justify-center items-center bg-black/30"
+                            className="absolute inset-0 flex flex-col justify-center items-center bg-black/30 px-4"
                         >
                             <h1 
-                                className="text-[18vw] md:text-[20vw] leading-none uppercase font-black tracking-tighter text-white drop-shadow-2xl"
+                                className="text-[22vw] sm:text-[18vw] md:text-[20vw] leading-none uppercase font-black tracking-tighter text-white drop-shadow-2xl text-center"
                                 style={{ fontFamily: "var(--font-display)" }}
                             >
                                 SEVENSKY
