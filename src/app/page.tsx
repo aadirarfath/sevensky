@@ -8,7 +8,7 @@ import { ContactSection } from "@/components/sections/Contact";
 
 function Footer() {
   return (
-    <footer className="border-t border-[#1E293B] py-8 bg-[#0A1128]">
+    <footer className="border-t border-[#21548e] py-8 bg-[#2d6fbc]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-white/40" style={{ fontFamily: "var(--font-geist-mono)" }}>
           © 2025 SevenSky Agency

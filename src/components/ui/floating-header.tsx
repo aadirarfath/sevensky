@@ -24,9 +24,9 @@ export function FloatingHeader() {
 
     return (
         <header
-            className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent"
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/5 backdrop-blur-sm' : 'bg-transparent'}`}
         >
-            <div className="px-4 md:px-6 h-16 flex items-center justify-between">
+            <div className="px-4 md:px-6 h-16 flex items-center justify-between mix-blend-difference">
                 {/* Logo - Left */}
                 <div className="flex-1 flex justify-start">
                     <a href="/" className="flex items-center group transition-transform hover:scale-105 duration-300">
@@ -40,7 +40,7 @@ export function FloatingHeader() {
                         <a
                             key={link.href}
                             href={link.href}
-                            className="text-sm font-medium text-white/80 hover:text-white transition-colors duration-200"
+                            className="text-sm font-medium text-white hover:text-white/70 transition-colors duration-200"
                         >
                             {link.label}
                         </a>
@@ -64,7 +64,7 @@ export function FloatingHeader() {
                                     <Menu className="h-5 w-5" />
                                 </button>
                             </SheetTrigger>
-                            <SheetContent side="right" className="bg-[#0A1128] border-[#1E293B]">
+                            <SheetContent side="right" className="bg-[#2d6fbc] border-white/10">
                                 <SheetHeader className="text-left">
                                     <SheetTitle className="sr-only">SevenSky Advertising</SheetTitle>
                                     <LogoSmall />

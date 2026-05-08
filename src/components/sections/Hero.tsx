@@ -98,7 +98,7 @@ export function HeroSection() {
         <section
             ref={sectionRef}
             // Height is strictly the screen size now, because we control progression via state locking, not scroll distance
-            className="relative h-screen w-full overflow-hidden bg-[#0A1128]"
+            className="relative h-screen w-full overflow-hidden bg-[#2d6fbc]"
         >
             {/* Video 1: start.mp4 */}
             <video

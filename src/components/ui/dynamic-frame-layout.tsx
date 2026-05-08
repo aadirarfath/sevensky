@@ -69,7 +69,7 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden bg-[#0F172A] rounded-xl group">
+      <div className="relative w-full h-full overflow-hidden bg-[#265d9e] rounded-xl group">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -112,14 +112,14 @@ function FrameComponent({
         {/* Overlay Title */}
         {title && (
           <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-             <div className="bg-[#0A1128]/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                <span className="text-white font-bold tracking-widest uppercase text-sm md:text-base" style={{ fontFamily: "var(--font-display)" }}>
+             <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-[#2d6fbc]/10 shadow-lg opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <span className="text-[#2d6fbc] font-bold tracking-widest uppercase text-sm md:text-base" style={{ fontFamily: "var(--font-display)" }}>
                   {title}
                 </span>
              </div>
              
              <div className="absolute bottom-6 left-6 opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                <span className="text-white font-bold tracking-widest uppercase text-xl md:text-2xl" style={{ fontFamily: "var(--font-display)" }}>
+                <span className="text-white font-bold tracking-widest uppercase text-xl md:text-2xl drop-shadow-lg" style={{ fontFamily: "var(--font-display)" }}>
                   {title}
                 </span>
              </div>
