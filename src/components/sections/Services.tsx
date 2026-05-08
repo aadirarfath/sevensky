@@ -1,66 +1,87 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import {
-    HoverSlider,
-    HoverSliderImage,
-    HoverSliderImageWrap,
-    TextStaggerHover,
-} from "@/components/ui/animated-slideshow";
+import { DynamicFrameLayout } from "@/components/ui/dynamic-frame-layout";
 
-const SLIDES = [
-    {
-        id: "slide-1",
-        title: "Web Development",
-        imageUrl: "/images/web_development.jpg",
-        description: "Custom, high-performance websites built for speed, SEO, and conversion.",
-        bullets: ["Next.js & React", "E-commerce", "CMS Integration", "Web App Development"],
-    },
-    {
-        id: "slide-2",
-        title: "Social Media",
-        imageUrl: "/images/social_media.jpg",
-        description: "Building brand presence and engagement across all key digital channels.",
-        bullets: ["Content Strategy", "Community Management", "Influencer Marketing", "Account Growth"],
-    },
-    {
-        id: "slide-3",
-        title: "Performance Marketing",
-        imageUrl: "/images/ads.jpg",
-        description: "Data-driven campaigns designed to deliver measurable ROI and scale business.",
-        bullets: ["Paid Search (SEM)", "Meta Ads", "Programmatic Ads", "Conversion Rate Optimisation"],
-    },
-    {
-        id: "slide-4",
-        title: "Production",
-        imageUrl: "/images/video_editing.jpg",
-        description: "High-end visual storytelling from concept to final edit.",
-        bullets: ["Video Production", "Photography", "Post-Production", "Colour Grading"],
-    },
-    {
-        id: "slide-5",
-        title: "Creative",
-        imageUrl: "/images/content_creation.jpg",
-        description: "Bold ideas and visual languages that define market leaders.",
-        bullets: ["Creative Direction", "Copywriting", "Content Creation", "Graphic Design"],
-    },
-    {
-        id: "slide-6",
-        title: "Branding",
-        imageUrl: "/images/branding.jpg",
-        description: "Positioning and identity systems that stand the test of time.",
-        bullets: ["Visual Identity", "Brand Strategy", "Logo Design", "Brand Guidelines"],
-    },
+const serviceFrames = [
+  {
+    id: 1,
+    title: "Web Development",
+    video: "https://static.cdn-luma.com/files/981e483f71aa764b/Company%20Thing%20Exported.mp4",
+    defaultPos: { x: 0, y: 0, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 2,
+    title: "Social Media",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/WebGL%20Exported%20(1).mp4",
+    defaultPos: { x: 4, y: 0, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 3,
+    title: "Performance Marketing",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Jitter%20Exported%20Poster.mp4",
+    defaultPos: { x: 8, y: 0, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 4,
+    title: "Production",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Exported%20Web%20Video.mp4",
+    defaultPos: { x: 0, y: 4, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 5,
+    title: "Creative",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Logo%20Exported.mp4",
+    defaultPos: { x: 4, y: 4, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 6,
+    title: "Branding",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Animation%20Exported%20(4).mp4",
+    defaultPos: { x: 8, y: 4, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 7,
+    title: "Content Creation",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Illustration%20Exported%20(1).mp4",
+    defaultPos: { x: 0, y: 8, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 8,
+    title: "Strategy",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Art%20Direction%20Exported.mp4",
+    defaultPos: { x: 4, y: 8, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
+  {
+    id: 9,
+    title: "E-Commerce",
+    video: "https://static.cdn-luma.com/files/58ab7363888153e3/Product%20Video.mp4",
+    defaultPos: { x: 8, y: 8, w: 4, h: 4 },
+    mediaSize: 1,
+    isHovered: false,
+  },
 ];
 
 export function ServicesSection() {
-    const [openIndex, setOpenIndex] = useState<number>(0);
-
     return (
         <section
             id="services"
-            className="py-24 md:py-36 border-t border-[#2A2415]"
+            className="py-24 md:py-36 border-t border-[#1E293B]"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Heading */}
@@ -72,77 +93,15 @@ export function ServicesSection() {
                 </h2>
             </div>
 
-            {/* Hover Slider */}
-            <HoverSlider className="px-6 md:px-12 max-w-7xl mx-auto">
-                <div className="flex flex-wrap items-start justify-between gap-8 md:gap-12">
-                    {/* Service List with Accordion */}
-                    <div className="flex flex-col flex-1 min-w-[260px] divide-y divide-[#2A2415]">
-                        {SLIDES.map((slide, index) => (
-                            <div key={slide.id} className="py-6 md:py-8">
-                                <button
-                                    className="w-full text-left focus:outline-none group"
-                                    onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
-                                    aria-expanded={openIndex === index}
-                                >
-                                    <TextStaggerHover
-                                        index={index}
-                                        text={slide.title}
-                                        className={`text-[8vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.8vw] font-bold uppercase tracking-tighter leading-tight transition-colors duration-200 ${openIndex === index ? "text-[#D4A843]" : "text-white"}`}
-                                        style={{ fontFamily: "var(--font-display)" }}
-                                    />
-                                </button>
-
-                                <AnimatePresence initial={false}>
-                                    {openIndex === index && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-                                            className="overflow-hidden"
-                                        >
-                                            <div className="pt-6 pb-2 max-w-xl">
-                                                <p className="text-lg md:text-xl text-[#F5F0E8] mb-6 leading-relaxed">
-                                                    {slide.description}
-                                                </p>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                                                    {slide.bullets.map((bullet) => (
-                                                        <div key={bullet} className="flex items-center gap-3">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-[#D4A843]" />
-                                                            <span className="text-sm md:text-base text-[#C9A84C] uppercase tracking-widest font-medium">
-                                                                {bullet}
-                                                            </span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Image Panel — Sticky and tall */}
-                    <div className="hidden lg:block w-[400px] xl:w-[480px] shrink-0 sticky top-32 self-start mt-8">
-                        <HoverSliderImageWrap className="rounded-2xl overflow-hidden h-[70vh] shadow-[0_8px_40px_rgba(212,168,67,0.15)] border border-[#2A2415]">
-                            {SLIDES.map((slide, index) => (
-                                <div key={slide.id}>
-                                    <HoverSliderImage
-                                        index={index}
-                                        imageUrl={slide.imageUrl}
-                                        src={slide.imageUrl}
-                                        alt={slide.title}
-                                        className="size-full object-cover"
-                                        loading="eager"
-                                        decoding="async"
-                                    />
-                                </div>
-                            ))}
-                        </HoverSliderImageWrap>
-                    </div>
-                </div>
-            </HoverSlider>
+            {/* Dynamic Frame Layout */}
+            <div className="w-full h-[60vh] md:h-[80vh] max-w-[1600px] mx-auto px-4 md:px-8">
+                <DynamicFrameLayout 
+                    frames={serviceFrames} 
+                    className="w-full h-full" 
+                    hoverSize={6}
+                    gapSize={8}
+                />
+            </div>
         </section>
     );
 }

@@ -1,86 +1,180 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const tickerItems = [
-    "WEB DESIGN", "SEO", "BRANDING", "PHOTOGRAPHY", "SOCIAL MEDIA",
-    "STRATEGY", "ADS", "CONTENT CREATION", "EMAIL MARKETING",
-];
+type SequenceState = 'start_playing' | 'waiting_for_scroll' | 'scroll_playing' | 'finished';
 
 export function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
+    const startVideoRef = useRef<HTMLVideoElement>(null);
+    const scrollVideoRef = useRef<HTMLVideoElement>(null);
 
+    const [sequenceState, setSequenceState] = useState<SequenceState>('start_playing');
+    const [mottoShown, setMottoShown] = useState(false);
+    const [brandShown, setBrandShown] = useState(false);
+
+    // Lock scrolling until the entire sequence is finished
     useEffect(() => {
-        const el = sectionRef.current;
-        if (el) el.classList.add("loaded");
+        if (sequenceState !== 'finished') {
+            document.body.style.overflow = "hidden";
+            // Ensure we are locked exactly at the top of the page
+            window.scrollTo(0, 0);
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [sequenceState]);
+
+    // Force scroll to top on refresh/mount
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
     }, []);
+
+    // Listen for manual scroll intent to trigger the second video
+    useEffect(() => {
+        const handleWheel = (e: WheelEvent) => {
+            if (sequenceState === 'waiting_for_scroll' && e.deltaY > 0) {
+                startScrollVideo();
+            }
+        };
+
+        let touchStartY = 0;
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStartY = e.touches[0].clientY;
+        };
+        const handleTouchMove = (e: TouchEvent) => {
+            if (sequenceState === 'waiting_for_scroll') {
+                const touchEndY = e.touches[0].clientY;
+                if (touchStartY - touchEndY > 20) { // Swiping up (scrolling down)
+                    startScrollVideo();
+                }
+            }
+        };
+
+        window.addEventListener('wheel', handleWheel, { passive: true });
+        window.addEventListener('touchstart', handleTouchStart, { passive: true });
+        window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
+        };
+    }, [sequenceState]);
+
+    const startScrollVideo = () => {
+        setSequenceState('scroll_playing');
+        if (scrollVideoRef.current) {
+            scrollVideoRef.current.currentTime = 0;
+            scrollVideoRef.current.playbackRate = 1.5;
+            scrollVideoRef.current.play().catch(() => {});
+        }
+    };
+
+    const handleStartVideoTimeUpdate = () => {
+        if (startVideoRef.current) {
+            const { currentTime, duration } = startVideoRef.current;
+            if (duration > 0 && currentTime / duration >= 0.8 && !mottoShown) {
+                setMottoShown(true);
+            }
+        }
+    };
+
+    const handleScrollVideoTimeUpdate = () => {
+        if (scrollVideoRef.current) {
+            const { currentTime, duration } = scrollVideoRef.current;
+            // Display SEVENSKY just before the sequence ends
+            if (duration > 0 && currentTime / duration >= 0.95 && !brandShown) {
+                setBrandShown(true);
+            }
+        }
+    };
 
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+            // Height is strictly the screen size now, because we control progression via state locking, not scroll distance
+            className="relative h-screen w-full overflow-hidden bg-[#0A1128]"
         >
-            {/* Dot grid texture */}
-            <div
-                className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none"
-                aria-hidden="true"
+            {/* Video 1: start.mp4 */}
+            <video
+                ref={startVideoRef}
+                src="/hero/start.mp4"
+                autoPlay
+                muted
+                playsInline
+                loop={false}
+                onTimeUpdate={handleStartVideoTimeUpdate}
+                onEnded={() => setSequenceState('waiting_for_scroll')}
+                className={`absolute inset-0 w-full h-full object-cover ${(sequenceState === "start_playing" || sequenceState === "waiting_for_scroll") ? "opacity-100 z-10" : "opacity-0 z-0"}`}
             />
 
-            {/* Top-left label */}
-            <div className="absolute top-24 left-6 md:left-12">
-                <p
-                    className="text-xs text-[#7A5C1E] tracking-widest uppercase animate-fade-up animate-delay-100"
-                    style={{ fontFamily: "var(--font-geist-mono)" }}
-                >
-                    Digital Agency — Est. 2024
-                </p>
-            </div>
+            {/* Video 2: scroll1.mp4 */}
+            {/* Playback is strictly standard time (normal speed) once triggered */}
+            <video
+                ref={scrollVideoRef}
+                src="/hero/scroll1.mp4"
+                muted
+                playsInline
+                loop={false}
+                preload="auto"
+                onTimeUpdate={handleScrollVideoTimeUpdate}
+                onEnded={() => setSequenceState('finished')}
+                className={`absolute inset-0 w-full h-full object-cover ${(sequenceState === "scroll_playing" || sequenceState === "finished") ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+            />
 
-            {/* Main content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-16">
-                {/* Headline */}
-                <h1
-                    className="text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[0.88] text-white select-none"
-                    style={{ fontFamily: "var(--font-display)", letterSpacing: "0.01em" }}
-                >
-                    <span className="block animate-fade-up animate-delay-200">WE BUILD</span>
-                    <span className="block animate-fade-up animate-delay-300 text-transparent bg-clip-text bg-gradient-to-r from-[#D4A843] via-[#F0C040] to-[#B8882C]">BRANDS THAT</span>
-                    <span className="block animate-fade-up animate-delay-400">MOVE PEOPLE</span>
-                </h1>
-
-                {/* Subtitle */}
-                <p className="mt-8 text-base md:text-lg text-[#C9A84C] tracking-widest uppercase animate-fade-up animate-delay-500">
-                    Strategy · Design · Digital Marketing · Web
-                </p>
-
-                {/* Bottom row */}
-                <div className="mt-16 md:mt-24 flex items-end justify-between">
-                    <div /> {/* spacer */}
-                    <div className="animate-fade-up animate-delay-600">
-                        <a
-                            href="#services"
-                            className="inline-flex items-center gap-2 border border-[#D4A843] text-[#D4A843] text-sm px-6 py-3 rounded-full hover:bg-[#D4A843] hover:text-[#0C0C0C] transition-all duration-200"
+            {/* Overlays */}
+            <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-center items-center">
+                
+                {/* Motto Text Overlay */}
+                <AnimatePresence>
+                    {mottoShown && (sequenceState === "start_playing" || sequenceState === "waiting_for_scroll") && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 1 }}
+                            className="absolute inset-0 flex flex-col justify-end items-center text-center px-6 pb-24 md:pb-32 bg-black/20"
                         >
-                            See Our Work ↓
-                        </a>
-                    </div>
-                </div>
-            </div>
+                            <p 
+                                className="text-3xl md:text-6xl text-white font-medium mb-6 drop-shadow-xl" 
+                                style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}
+                            >
+                                Where brands take flight.
+                            </p>
+                            <p className="text-white/90 text-sm md:text-xl tracking-widest uppercase mb-4 drop-shadow-md">
+                                Bold Storytelling · Sharper design · smarter marketing
+                            </p>
+                            <p className="text-[#F5F0E8]/90 text-xs md:text-base tracking-widest uppercase drop-shadow-md">
+                                We build brands worth remembering
+                            </p>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-            {/* Bottom ticker */}
-            <div className="absolute bottom-8 left-0 right-0 overflow-hidden">
-                <div className="flex animate-ticker whitespace-nowrap select-none">
-                    {[...tickerItems, ...tickerItems].map((item, i) => (
-                        <span
-                            key={i}
-                            className="inline-flex items-center px-6 text-xs tracking-widest text-[#7A5C1E] shrink-0"
-                            style={{ fontFamily: "var(--font-geist-mono)" }}
+                {/* Brand Name Overlay */}
+                <AnimatePresence>
+                    {brandShown && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="absolute inset-0 flex flex-col justify-center items-center bg-black/30"
                         >
-                            {item}
-                            <span className="ml-6 text-[#B8882C]">·</span>
-                        </span>
-                    ))}
-                </div>
+                            <h1 
+                                className="text-[18vw] md:text-[20vw] leading-none uppercase font-black tracking-tighter text-white drop-shadow-2xl"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                SEVENSKY
+                            </h1>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
             </div>
         </section>
     );

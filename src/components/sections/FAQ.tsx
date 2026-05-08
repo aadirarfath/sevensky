@@ -37,14 +37,14 @@ export function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="py-24 md:py-36 border-t border-[#2A2415]">
+        <section id="faq" className="py-24 md:py-36 border-t border-[#1E293B] bg-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
 
                     {/* Left Column: Heading & CTA */}
                     <div className="lg:col-span-5">
                         <h2
-                            className="text-[12vw] md:text-[8vw] leading-none text-white mb-12"
+                            className="text-[12vw] md:text-[8vw] leading-none text-[#0A1128] mb-12"
                             style={{ fontFamily: "var(--font-display)" }}
                         >
                             FAQs
@@ -52,35 +52,35 @@ export function FAQSection() {
 
                         <div
                             onClick={() => window.open(WHATSAPP_URL, '_blank')}
-                            className="group cursor-pointer p-8 rounded-3xl bg-[#141209] border border-[#2A2415] transition-all duration-300 hover:border-[#D4A843] hover:shadow-[0_8px_40px_rgba(212,168,67,0.12)] hover:-translate-y-1"
+                            className="group cursor-pointer p-8 rounded-3xl bg-[#F8FAFC] border border-[#E2E8F0] transition-all duration-300 hover:border-[#0A1128] hover:shadow-[0_8px_40px_rgba(10,17,40,0.08)] hover:-translate-y-1"
                         >
                             <p
-                                className="text-2xl md:text-3xl text-white mb-6 leading-tight"
+                                className="text-2xl md:text-3xl text-[#0A1128] mb-6 leading-tight"
                                 style={{ fontFamily: "var(--font-display)" }}
                             >
                                 Have further questions? Our team is ready to help you scale.
                             </p>
-                            <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-bold text-[#D4A843] border-b-2 border-[#D4A843] pb-1 group-hover:gap-4 transition-all">
+                            <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-bold text-[#0A1128] border-b-2 border-[#0A1128] pb-1 group-hover:gap-4 transition-all">
                                 Chat on WhatsApp <span>→</span>
                             </span>
                         </div>
                     </div>
 
                     {/* Right Column: FAQ Accordion */}
-                    <div className="lg:col-span-7 divide-y divide-[#2A2415]">
+                    <div className="lg:col-span-7 divide-y divide-[#0A1128]/10">
                         {faqs.map((faq, index) => (
                             <div key={index} className="py-6 md:py-8">
                                 <button
                                     className="w-full flex items-center justify-between text-left focus:outline-none group"
                                     onClick={() => setOpenIndex(index === openIndex ? null : index)}
                                 >
-                                    <span className="text-xl md:text-2xl font-medium text-white transition-colors group-hover:text-[#D4A843]">
+                                    <span className="text-xl md:text-2xl font-medium text-[#0A1128] transition-colors group-hover:text-[#0A1128]/60">
                                         {faq.question}
                                     </span>
                                     {openIndex === index ? (
-                                        <Minus className="w-5 h-5 text-[#D4A843] shrink-0 ml-4" />
+                                        <Minus className="w-5 h-5 text-[#0A1128] shrink-0 ml-4" />
                                     ) : (
-                                        <Plus className="w-5 h-5 text-[#7A5C1E] shrink-0 ml-4" />
+                                        <Plus className="w-5 h-5 text-[#0A1128]/30 shrink-0 ml-4" />
                                     )}
                                 </button>
 
@@ -94,7 +94,7 @@ export function FAQSection() {
                                             className="overflow-hidden"
                                         >
                                             <div className="pt-6">
-                                                <p className="text-base md:text-lg text-[#C9A84C] leading-relaxed">
+                                                <p className="text-base md:text-lg text-[#0A1128]/70 leading-relaxed">
                                                     {faq.answer}
                                                 </p>
                                             </div>

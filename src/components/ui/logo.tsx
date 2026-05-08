@@ -4,7 +4,7 @@ export function Logo({ className = "" }: { className?: string }) {
             {/* Icon Area */}
             <div className="relative group">
                 {/* Glow behind the icon */}
-                <div className="absolute inset-0 bg-[#d4af37] opacity-20 blur-xl rounded-full transition-opacity duration-500 group-hover:opacity-40"></div>
+                <div className="absolute inset-0 bg-white opacity-20 blur-xl rounded-full transition-opacity duration-500 group-hover:opacity-40"></div>
 
                 {/* The block containing the SS */}
                 <div
@@ -28,12 +28,10 @@ export function Logo({ className = "" }: { className?: string }) {
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <defs>
-                                <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#E5C778" />
-                                    <stop offset="25%" stopColor="#FFF2B2" />
-                                    <stop offset="50%" stopColor="#C89D46" />
-                                    <stop offset="75%" stopColor="#FDE192" />
-                                    <stop offset="100%" stopColor="#8A6327" />
+                                <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#FFFFFF" />
+                                    <stop offset="50%" stopColor="#CBD5E1" />
+                                    <stop offset="100%" stopColor="#94A3B8" />
                                 </linearGradient>
                                 <filter id="bevel" x="-20%" y="-20%" width="140%" height="140%">
                                     <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur" />
@@ -54,7 +52,7 @@ export function Logo({ className = "" }: { className?: string }) {
                             </defs>
                             <path
                                 d="M 90 30 C 90 15, 75 10, 50 10 C 25 10, 10 15, 10 30 C 10 45, 25 50, 40 50 L 60 50 C 75 50, 90 55, 90 70 C 90 85, 75 90, 50 90 C 25 90, 10 85, 10 70"
-                                stroke="url(#gold)"
+                                stroke="url(#silver)"
                                 strokeWidth="18"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -73,7 +71,7 @@ export function Logo({ className = "" }: { className?: string }) {
                         >
                             <path
                                 d="M 90 30 C 90 15, 75 10, 50 10 C 25 10, 10 15, 10 30 C 10 45, 25 50, 40 50 L 60 50 C 75 50, 90 55, 90 70 C 90 85, 75 90, 50 90 C 25 90, 10 85, 10 70"
-                                stroke="url(#gold)"
+                                stroke="url(#silver)"
                                 strokeWidth="18"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -90,17 +88,17 @@ export function Logo({ className = "" }: { className?: string }) {
                     className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-[0.2em] relative"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
-                    {/* Gold Text Gradient Component */}
-                    <span className="bg-gradient-to-br from-[#E5C778] via-[#FFF2B2] to-[#C89D46] bg-clip-text text-transparent drop-shadow-md relative z-10">
+                    {/* White Text Gradient Component */}
+                    <span className="bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent drop-shadow-md relative z-10">
                         SEVEN SKY
                     </span>
                     {/* subtle glow */}
-                    <span className="absolute inset-0 bg-gradient-to-br from-[#E5C778] via-[#FFF2B2] to-[#C89D46] bg-clip-text text-transparent opacity-50 blur-sm z-0">
+                    <span className="absolute inset-0 bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent opacity-50 blur-sm z-0">
                         SEVEN SKY
                     </span>
                 </h1>
                 <p
-                    className="text-[0.6rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] text-[#C89D46] uppercase font-light mt-1"
+                    className="text-[0.6rem] md:text-xs tracking-[0.3em] md:tracking-[0.4em] text-white/60 uppercase font-light mt-1"
                     style={{ fontFamily: "var(--font-body)" }}
                 >
                     Advertising
@@ -132,17 +130,15 @@ export function LogoSmall({ className = "" }: { className?: string }) {
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <defs>
-                                <linearGradient id="goldSmall" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#E5C778" />
-                                    <stop offset="25%" stopColor="#FFF2B2" />
-                                    <stop offset="50%" stopColor="#C89D46" />
-                                    <stop offset="75%" stopColor="#FDE192" />
-                                    <stop offset="100%" stopColor="#8A6327" />
+                                <linearGradient id="silverSmall" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#FFFFFF" />
+                                    <stop offset="50%" stopColor="#CBD5E1" />
+                                    <stop offset="100%" stopColor="#94A3B8" />
                                 </linearGradient>
                             </defs>
                             <path
                                 d="M 90 30 C 90 15, 75 10, 50 10 C 25 10, 10 15, 10 30 C 10 45, 25 50, 40 50 L 60 50 C 75 50, 90 55, 90 70 C 90 85, 75 90, 50 90 C 25 90, 10 85, 10 70"
-                                stroke="url(#goldSmall)"
+                                stroke="url(#silverSmall)"
                                 strokeWidth="18"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -160,7 +156,7 @@ export function LogoSmall({ className = "" }: { className?: string }) {
                         >
                             <path
                                 d="M 90 30 C 90 15, 75 10, 50 10 C 25 10, 10 15, 10 30 C 10 45, 25 50, 40 50 L 60 50 C 75 50, 90 55, 90 70 C 90 85, 75 90, 50 90 C 25 90, 10 85, 10 70"
-                                stroke="url(#goldSmall)"
+                                stroke="url(#silverSmall)"
                                 strokeWidth="18"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -173,13 +169,13 @@ export function LogoSmall({ className = "" }: { className?: string }) {
 
             <div className="flex flex-col">
                 <span
-                    className="text-lg md:text-xl font-bold tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-br from-[#E5C778] via-[#FFF2B2] to-[#C89D46]"
+                    className="text-lg md:text-xl font-bold tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/70"
                     style={{ fontFamily: "var(--font-display)" }}
                 >
                     SEVEN SKY
                 </span>
                 <span
-                    className="text-[0.45rem] tracking-[0.25em] uppercase font-light -mt-0.5 text-[#C89D46]"
+                    className="text-[0.45rem] tracking-[0.25em] uppercase font-light -mt-0.5 text-white/60"
                     style={{ fontFamily: "var(--font-body)" }}
                 >
                     Advertising

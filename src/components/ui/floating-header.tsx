@@ -24,10 +24,7 @@ export function FloatingHeader() {
 
     return (
         <header
-            className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${scrolled
-                ? "w-[95%] md:w-[80%] max-w-5xl bg-[#0C0C0C]/95 backdrop-blur-xl border border-[#2A2415] shadow-[0_8px_32px_rgba(212,168,67,0.08)] rounded-full"
-                : "w-[95%] md:w-[85%] max-w-6xl bg-[#0C0C0C]/80 backdrop-blur-md border border-[#2A2415]/60 shadow-sm rounded-full"
-                }`}
+            className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent"
         >
             <div className="px-4 md:px-6 h-16 flex items-center justify-between">
                 {/* Logo - Left */}
@@ -43,7 +40,7 @@ export function FloatingHeader() {
                         <a
                             key={link.href}
                             href={link.href}
-                            className="text-sm font-medium text-[#C9A84C] hover:text-[#F0C040] transition-colors duration-200"
+                            className="text-sm font-medium text-white/80 hover:text-white transition-colors duration-200"
                         >
                             {link.label}
                         </a>
@@ -61,13 +58,13 @@ export function FloatingHeader() {
                         <Sheet>
                             <SheetTrigger asChild>
                                 <button
-                                    className="p-2 text-[#C9A84C] hover:bg-[#D4A843]/10 rounded-full transition-colors"
+                                    className="p-2 text-white hover:bg-white/10 rounded-full transition-colors"
                                     aria-label="Open menu"
                                 >
                                     <Menu className="h-5 w-5" />
                                 </button>
                             </SheetTrigger>
-                            <SheetContent side="right" className="bg-[#0C0C0C] border-[#2A2415]">
+                            <SheetContent side="right" className="bg-[#0A1128] border-[#1E293B]">
                                 <SheetHeader className="text-left">
                                     <SheetTitle className="sr-only">SevenSky Advertising</SheetTitle>
                                     <LogoSmall />
@@ -77,7 +74,7 @@ export function FloatingHeader() {
                                         <a
                                             key={link.href}
                                             href={link.href}
-                                            className="text-xl text-[#F5F0E8] hover:text-[#D4A843] transition-colors"
+                                            className="text-xl text-[#F5F0E8] hover:text-white transition-colors"
                                             style={{ fontFamily: "var(--font-display)", letterSpacing: "0.06em" }}
                                         >
                                             {link.label}
