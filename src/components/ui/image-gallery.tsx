@@ -9,6 +9,9 @@ export function ImageGallery() {
     "/testimonial/3.png",
     "/testimonial/4.png",
     "/testimonial/5.png",
+    "/testimonial/6.png",
+    "/testimonial/7.png",
+    "/testimonial/8.png",
   ];
 
   return (

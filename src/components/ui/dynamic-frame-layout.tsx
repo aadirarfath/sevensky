@@ -205,10 +205,10 @@ export function DynamicFrameLayout({
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
 
   const getRowSizes = () => {
-    if (hovered === null) return "4fr 4fr 4fr"
+    if (hovered === null) return "3fr 3fr 3fr 3fr"
     const { row } = hovered
-    const nonHoveredSize = (12 - hoverSize) / 2
-    return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
+    const nonHoveredSize = (12 - hoverSize) / 3
+    return [0, 1, 2, 3].map((r) => (r === row ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getColSizes = () => {
@@ -219,7 +219,7 @@ export function DynamicFrameLayout({
   }
 
   const getTransformOrigin = (x: number, y: number) => {
-    const vertical = y === 0 ? "top" : y === 4 ? "center" : "bottom"
+    const vertical = y === 0 ? "top" : y === 12 ? "bottom" : "center"
     const horizontal = x === 0 ? "left" : x === 4 ? "center" : "right"
     return `${vertical} ${horizontal}`
   }

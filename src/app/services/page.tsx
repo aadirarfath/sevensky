@@ -40,6 +40,24 @@ const services = [
     title: "Web Dev & UI/UX",
     description: "Custom web applications, e-commerce platforms, and beautiful interface designs.",
     features: ["Custom Web Apps", "E-commerce", "Modern UI/UX"]
+  },
+  {
+    id: "graphic-design",
+    title: "Graphic Design",
+    description: "Creative visual solutions, digital assets, and impactful designs to effectively communicate your brand's message.",
+    features: ["Visual Identity", "Digital Assets", "Illustration"]
+  },
+  {
+    id: "packaging-design",
+    title: "Print & Packaging Design",
+    description: "Premium print materials and custom packaging designs that stand out on shelves and leave a lasting impression.",
+    features: ["Product Packaging", "Print Materials", "Label Design"]
+  },
+  {
+    id: "reputation-management",
+    title: "Reputation Management",
+    description: "Strategic solutions to protect, monitor, and enhance your brand's public image and digital footprint.",
+    features: ["Brand Monitoring", "Crisis Management", "PR Strategy"]
   }
 ];
 
